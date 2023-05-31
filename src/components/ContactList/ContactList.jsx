@@ -3,11 +3,11 @@ import { ContactsItem } from './ContactList.styled';
 
 const ContactList = ({ contacts, deleteContact }) => (
   <ul>
-    {contacts.map(({ id, name, number }) => {
+    {contacts.map(({ id, name, phone }) => {
       return (
         <ContactsItem key={id}>
           <p className="contact-name">
-            {name}: {number}
+            {name}: {phone}
           </p>
           <button
             type="button"
@@ -27,50 +27,10 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
     })
   ).isRequired,
   deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
-
-
-// const ContactList = ({ contacts }) => {
-//   const dispatch = useDispatch();
-
-//   const handleDeleteContact = id => {
-//     dispatch(deleteContact(id));
-//   };
-
-//   return (
-//     <ul>
-//       {contacts.map(({ id, name, number }) => (
-//         <ContactsItem key={id}>
-//           <p className="contact-name">
-//             {name}: {number}
-//           </p>
-//           <button
-//             type="button"
-//             onClick={() => handleDeleteContact(id)}
-//             className="bnt-name"
-//           >
-//             Delete
-//           </button>
-//         </ContactsItem>
-//       ))}
-//     </ul>
-//   );
-// };
-
-// ContactList.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
-
-// export default ContactList;
